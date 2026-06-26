@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Weather App</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='miles.css') }}">
+    </head>
+    <body>
+        <h1>Weather App</h1>
+        <form method="POST" action="/">
+            <input type="text" name="city" placeholder="Enter city">
+            <button>Get Weather</button>
+        </form>
+
+        {% if weather %}
+            <p>{{ weather['main']['temp'] }}°C</p>
+            <p>{{ weather['weather'][0]['description'] }}</p>
+        {% endif %}
+
+        {% for search in history %}
+    <p>{{ search.city }}</p>
+{% endfor %}
+    </body>
+</html>
+
+
+
